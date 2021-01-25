@@ -1,7 +1,6 @@
 console.log('Client side js is running!');
 const local = false;
 
-getBaseUrl = local ? 'http://localhost:3000/' : 'https://hamid-weather-app-node.herokuapp.com/' 
 
 const renderSuccess = (data) => {
   const { address = '', location = {}, forecast } = data;
@@ -16,7 +15,7 @@ const renderError = (message) => {
 }
 
 const getData = async (param) => {
-  const url = `${getBaseUrl}weather?address=${param}`;
+  const url = `/weather?address=${param}`;
   fetch(url).then((response) => {
     response.json().then((data) => {
       if (data.forecast) {
